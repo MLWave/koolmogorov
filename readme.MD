@@ -116,7 +116,7 @@ mt.visualize(G, method="matplotlib")
 
 Result:
 
-visualization.png
+![Chain Letter Dendrogram](http://i.imgur.com/DobvcIY.png)
 
 ### Malware families
 
