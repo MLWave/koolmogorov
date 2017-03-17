@@ -1,6 +1,6 @@
 # Koolmogorov
 
-Koolmogorov is a clustering and visualization library in Python based on CompLearn. Koolmogorov uses techniques and data structures from:
+Koolmogorov is a clustering and visualization library in Python based on [CompLearn](http://complearn.org/). Koolmogorov uses approaches, techniques, and data structures from:
 
 - Kolmogorov Complexity (https://www.jstor.org/stable/25049284)
 - Normalized Information Distance (https://arxiv.org/abs/0809.2553)
@@ -8,7 +8,7 @@ Koolmogorov is a clustering and visualization library in Python based on CompLea
 - Normalized Web Distance (https://arxiv.org/abs/0905.4039)
 - Normalized Count-Min Sketch Distance (Unpublished research)
 - Normalized Compression Neighbors (Unpublished research)
-- Topological Data Analysis ()
+- Topological Data Analysis (http://brown.edu/Research/kalisnik/mapperPBG.pdf)
 - Count-Min Sketch (http://dl.acm.org/citation.cfm?id=1073718)
 - A New Quartet Tree Heuristic for Hierarchical Clustering (https://arxiv.org/abs/cs/0606048)
 - Force-Directed Graphs (http://www.cs.cmu.edu/afs/cs/academic/class/15462-s13/www/lec_slides/Jakobsen.pdf)
@@ -55,7 +55,7 @@ See MakeDistanceMatrix documentation for more information.
 
 ## Creating trees
 
-The distance matrix is used to create a tree (also called: unrooted dendrogram or philogenetic tree).
+The distance matrix is used to create a tree (also called: unrooted dendrogram or phylogenetic tree).
 
 ```
 from koolmogorov import MakeTree
@@ -120,24 +120,29 @@ Result:
 
 ### Malware families
 
-We download 2 malware families as used in the Kaggle Microsoft Malware Competition.
+We download a few malware families from the theZoo malware database:
+
+- Zeus
+- EquationGroup
+- Cryptolocker
+- Stuxnet
 
 ```
 from koolmogorov import MakeDistanceMatrix, MakeTree, MakeViz
 
 mdm = MakeDistanceMatrix()
-dm = mdm.ncd("malware/*.*", compressor="pylzma")
+dm = mdm.ncd("malware/*.*", compressor="bz2")
 
-mt = MakeTree(n_jobs=80)
+mt = MakeTree(n_iters=200, n_jobs=80)
 G, score = mt.fit_transform(dm)
 
 mv = MakeViz()
-mt.visualize(G, method="d3js")
+mv.visualize(G)
 ```
 
 Result:
 
-visualization.png
+![Malware Dendrogram](http://i.imgur.com/vjuFHTB.png)
 
 ### Lord of the Rings Character Network
 
