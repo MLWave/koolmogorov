@@ -199,9 +199,5 @@ mt.visualize(G, method="d3js")
 
 | Function | Description |
 | --- | --- |
-| fit_transform(dm) | Builds a tree from a distance matrix. Given a dictionary with tuples for keys and distance for values, computes a networkx tree object. 
-
-dm: Dict. A Dictionary with tuples for keys and distances for values. Distances between objects themselves are not stored. Both directions should be stored. For instance, with two objects "bill" and "gates", the distance_matrix may look like: `{("bill", "gates"): 0.15, ("gates", "bill"): 0.15}`
-
-Returns: G. NetworkX Graph Object. |
+| fit_transform(dm) | Builds a tree from a distance matrix. Given a dictionary with tuples for keys and distance for values, computes a networkx tree object. <br> dm: Dict. A Dictionary with tuples for keys and distances for values. Distances between objects themselves are not stored. Both directions should be stored. For instance, with two objects "bill" and "gates", the distance_matrix may look like: `{("bill", "gates"): 0.15, ("gates", "bill"): 0.15}` <br> Returns: G. NetworkX Graph Object. |
 
