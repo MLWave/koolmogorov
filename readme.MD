@@ -195,4 +195,13 @@ mt.visualize(G, method="d3js")
 | random_state | Int or None. If Int set a random seed for replication. Default `None`. |
 | n_jobs | Int. Number of multiple processes at once. Default `1`. |
 | n_iters | Int. Number of iterations before halting. Default `100`. |
-| method | String. Methodology for making the tree. `native` for Python. `MCMC` for original MCMC MQTC. The original method is both faster and more accurate, allowing you to build bigger trees in less time. Set `koolmogorov.LOC_MAKETREE` variable to the location of the MakeTree executable. Original executables can be downloaded and build from the official [CompLearn site](http://complearn.org/download.html). Default `native`. |
+| method | String. Methodology for making the tree. `native` for Python. `MCMC` for original MCMC MQTC. The original method is both faster and more accurate, allowing you to build bigger trees in less time. Set `koolmogorov.LOC_MAKETREE` variable to the location of the MakeTree executable. Original executables can be downloaded and build from the official [CompLearn site](http://complearn.org/download.html). Note: When using `MCMC`-method other attributes like `random_state`, `n_jobs`, and `n_iters` are ignored. Default `native`. |
+
+| Function | Description |
+| --- | --- |
+| fit_transform(dm) | Builds a tree from a distance matrix. Given a dictionary with tuples for keys and distance for values, computes a networkx tree object. 
+
+dm: Dict. A Dictionary with tuples for keys and distances for values. Distances between objects themselves are not stored. Both directions should be stored. For instance, with two objects "bill" and "gates", the distance_matrix may look like: `{("bill", "gates"): 0.15, ("gates", "bill"): 0.15}`
+
+Returns: G. NetworkX Graph Object. |
+
