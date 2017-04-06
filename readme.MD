@@ -185,7 +185,18 @@ mt.visualize(G, method="d3js")
 
 ## Documentation
 
-### MakeDistanceMatrix(verbose=1)
+### MakeDistanceMatrix(verbose=0)
+
+| Attribute | Value |
+| --- | --- |
+| verbose | a non-negative integer denoting level of verbosity. Default `0` |
+
+| Function | Description |
+| --- | --- |
+| ncd(loc_files, compressor="bz2", compression_level=9) | Computes Normalized Compression Distance between a collection of files.<br><br>loc_files: glob. Location to the files under consideration. For instance: `data/*.*` for all files in the `data`-directory. <br><br> compressor: String. Any of `bz2`, `zlib`, `snappy`, `pylzma`. Using `snappy` or `pylzma` requires installation of those libraries. Default: `bz2`.<br><br>compression_level: Int. The compression level (higher is usually better for approaching Kolmogorov Complexity). When using `snappy`-compressor, the `compression_level` is ignored. Default: `9`.|
+| nwd(l, compressor="bing") | Computes Normalized Web Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: String. Any of `bing`, `google`, `duckduckgo`, `wikipedia`, `hackernews`. **Note:** Most search engines do not allow automated access in their Terms of Service. Though Koolmogorov does not hammer the search engines (it uses sleep to limit requests per second), search engines may not appreciate that many automated requests from a single IP. Use at your own discretion and calculate risk of a (temporary) ban. Default: `bing`.|
+| ncmsd(l, compressor=ind) | Computer Normalized Count-Min Sketch Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: ind. A Count-Min Sketch indexed on certain corpora using MakeIndex.|
+
 
 ### MakeTree(verbose=0, random_state=None, n_jobs=1, n_iters=100, method="native")
 
@@ -199,5 +210,5 @@ mt.visualize(G, method="d3js")
 
 | Function | Description |
 | --- | --- |
-| fit_transform(dm) | Builds a tree from a distance matrix. Given a dictionary with tuples for keys and distance for values, computes a networkx tree object. <br> dm: Dict. A Dictionary with tuples for keys and distances for values. Distances between objects themselves are not stored. Both directions should be stored. For instance, with two objects "bill" and "gates", the distance_matrix may look like: `{("bill", "gates"): 0.15, ("gates", "bill"): 0.15}` <br> Returns: G. NetworkX Graph Object. |
+| fit_transform(dm) | Builds a tree from a distance matrix. <br><br>Given a dictionary with tuples for keys and distance for values, computes a networkx tree object. <br><br> dm: Dict. A Dictionary with tuples for keys and distances for values. Distances between objects themselves are not stored. Both directions should be stored. For instance, with two objects "bill" and "gates", the distance_matrix may look like: `{("bill", "gates"): 0.15, ("gates", "bill"): 0.15}` <br><br> Returns: G. NetworkX Graph Object. |
 
