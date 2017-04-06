@@ -1,6 +1,6 @@
 # Koolmogorov
 
-Koolmogorov is a clustering and visualization library in Python based on [CompLearn](http://complearn.org/). Koolmogorov uses approaches, techniques, and data structures from:
+Koolmogorov is a hierarchical clustering and visualization library in Python based on [CompLearn](http://complearn.org/). Koolmogorov uses approaches, techniques, and data structures from:
 
 - Kolmogorov Complexity (https://www.jstor.org/stable/25049284)
 - Normalized Information Distance (https://arxiv.org/abs/0809.2553)
@@ -182,3 +182,16 @@ G, score = mt.fit_transform(dm)
 mv = MakeViz()
 mt.visualize(G, method="d3js")
 ```
+
+## Documentation
+
+### MakeDistanceMatrix(verbose=1)
+
+### MakeTree(verbose=0, random_state=None, n_jobs=1, n_iters=100, method="native")
+
+| Attribute | Value |
+| --- | --- |
+| verbose | a non-negative integer denoting level of verbosity. Default `0` |
+| random_state | Int or None. If Int set a random seed for replication. Default `None`. |
+| n_jobs | Int. Number of multiple processes at once. Default `1`. |
+| n_iters | Int. Number of iterations before halting. Default `100`. |
