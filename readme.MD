@@ -195,3 +195,4 @@ mt.visualize(G, method="d3js")
 | random_state | Int or None. If Int set a random seed for replication. Default `None`. |
 | n_jobs | Int. Number of multiple processes at once. Default `1`. |
 | n_iters | Int. Number of iterations before halting. Default `100`. |
+| method | String. Methodology for making the tree. `native` for Python. `MCMC` for original MCMC MQTC. The original method is both faster and more accurate, allowing you to build bigger trees in less time. Set `koolmogorov.LOC_MAKETREE` variable to the location of the MakeTree executable. Original executables can be downloaded and build from the official [CompLearn site](http://complearn.org/download.html). Default `native`. |
