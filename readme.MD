@@ -185,6 +185,13 @@ mt.visualize(G, method="d3js")
 
 ## Documentation
 
+### MakeIndex(verbose=0, w=1000000, d=5)
+| Attribute | Value |
+| --- | --- |
+| verbose | a non-negative integer denoting level of verbosity. Default `0` |
+| w | Int. Width of the Count-Min Sketch (number of buckets). Higher leads to more accurate count estimates. Default `1000000`. |
+| d | Int. Height of the Count-Min Sketch (number of rows). Higher leads to more accurate count estimates, but increases number of computations. Default `5`. |
+
 ### MakeDistanceMatrix(verbose=0)
 
 | Attribute | Value |
