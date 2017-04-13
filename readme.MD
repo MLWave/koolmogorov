@@ -1,6 +1,8 @@
 # Koolmogorov
 
-Koolmogorov is a hierarchical clustering and visualization library in Python based on [CompLearn](http://complearn.org/). Koolmogorov uses approaches, techniques, and data structures from:
+Koolmogorov is a hierarchical clustering and visualization library in Python based on [CompLearn](http://complearn.org/). 
+
+Koolmogorov uses approaches, techniques, and data structures from:
 
 - Kolmogorov Complexity (https://www.jstor.org/stable/25049284)
 - Normalized Information Distance (https://arxiv.org/abs/0809.2553)
@@ -144,27 +146,47 @@ Result:
 
 ![Malware Dendrogram](http://i.imgur.com/vjuFHTB.png)
 
-### Lord of the Rings Character Network
+### Semantic Word Similarity with Lord of the Rings
 
-We look at co-occurence of character names inside sentences of the Lord of the Rings trilogy.
+We look at co-occurence of word tokens inside sentences of the Lord of the Rings trilogy.
 
 ```
 from koolmogorov import MakeIndex, MakeDistanceMatrix, MakeTree, MakeViz
 
+tokens = ["two",
+		  "three",
+		  "four",
+		  "red",
+		  "blue",
+		  "green",
+		  "smjagol",
+		  "gollum",
+		  "frodo",
+		  "ring"]
+
 mi = MakeIndex()
-in = mi.index("Lordoftherings.txt", mini_documents=True)
+ind = mi.index(mi.sentence_splitter("lotr.txt"), 
+			   ignore_all_but=tokens)
 
 mdm = MakeDistanceMatrix()
-dm = mdm.ncmsd(["frodo", "bilbo", "pendergast"], index=in)
+dm = mdm.ncmsd(i, compressor=ind)
 
-mt = MakeTree(n_jobs=80)
+mt = MakeTree(method="native", n_jobs=8, n_iters=450)
 G, score = mt.fit_transform(dm)
 
 mv = MakeViz()
-mt.visualize(G, method="d3js")
+mv.visualize(G, 
+			 method="3Djs", 
+			 score=score, 
+			 compressor="Lord of the Rings", 
+			 title="Semantic Word Analysis on LOTR Trilogy")
 ```
 
 Result:
+
+![LOTR dendrogram](http://i.imgur.com/jUNd4dO.png)
+
+Live demo: http://mlwave.github.io/Semantic-Word-Analysis-on-LOTR-Trilogy.html
 
 ### Word Semantics
 
