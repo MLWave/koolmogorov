@@ -166,10 +166,10 @@ tokens = ["two",
 
 mi = MakeIndex()
 ind = mi.index(mi.sentence_splitter("lotr.txt"), 
-			   ignore_all_but=tokens)
+               ignore_all_but=tokens)
 
 mdm = MakeDistanceMatrix()
-dm = mdm.ncmsd(i, compressor=ind)
+dm = mdm.ncmsd(tokens, compressor=ind)
 
 mt = MakeTree(method="native", n_jobs=8, n_iters=450)
 G, score = mt.fit_transform(dm)
