@@ -214,6 +214,12 @@ mt.visualize(G, method="d3js")
 | w | Int. Width of the Count-Min Sketch (number of buckets). Higher leads to more accurate count estimates. Default `1000000`. |
 | d | Int. Height of the Count-Min Sketch (number of rows). Higher leads to more accurate count estimates, but increases number of computations. Default `5`. |
 
+| Function | Description |
+| --- | --- |
+| index(l, ignore_all_but=[]) | Indexes a corpus into a count-min sketch.<br><br>l: list of strings. List of document contents you want to index for co-occurrence.<br><br>ignore_all_but: list of tokens. When non-empty, will only look at these tokens. Default `[]`. |
+| sentence_splitter(loc_corpus) | Helper function to turn a file directly into a list of sentences.<br><br>loc_corpus: String. Location of the file you want to split up into sentences.|
+| paragraph_splitter(loc_corpus) | Helper function to turn a file directly into a list of paragraphs.<br><br>loc_corpus: String. Location of the file you want to split up into paragraphs.|
+
 ### MakeDistanceMatrix(verbose=0)
 
 | Attribute | Value |
