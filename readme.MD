@@ -264,6 +264,8 @@ We get 100% accuracy with 0.5 as a threshold:
 (20, '7407', '0.451069', 0)
 ```
 
+Note how non-primes ending with an uneven number get a slightly higher probability of being a prime.
+
 ## Documentation
 
 ### MakeIndex(verbose=0, w=1000000, d=5)
