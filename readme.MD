@@ -216,7 +216,7 @@ mt.visualize(G, method="d3js")
 
 | Function | Description |
 | --- | --- |
-| index(l, ignore_all_but=[]) | Indexes a corpus into a count-min sketch.<br><br>l: list of strings. List of document contents you want to index for co-occurrence.<br><br>ignore_all_but: list of tokens. When non-empty, will only look at these tokens. Default `[]`. |
+| index(l, ignore_all_but=[]) | Indexes a corpus into a count-min sketch.<br><br>l: list of strings. List of document contents you want to index for co-occurrence.<br><br>ignore_all_but: list of tokens. When non-empty, will only look at these tokens. Default `[]`.<br><br>Returns: ind. Count-min sketch to use as a compressor for MakeDistanceMatrix.ncmsd(). |
 | sentence_splitter(loc_corpus) | Helper function to turn a file directly into a list of sentences.<br><br>loc_corpus: String. Location of the file you want to split up into sentences.|
 | paragraph_splitter(loc_corpus) | Helper function to turn a file directly into a list of paragraphs.<br><br>loc_corpus: String. Location of the file you want to split up into paragraphs.|
 
@@ -228,9 +228,9 @@ mt.visualize(G, method="d3js")
 
 | Function | Description |
 | --- | --- |
-| ncd(loc_files, compressor="bz2", compression_level=9) | Computes Normalized Compression Distance between a collection of files.<br><br>loc_files: glob. Location to the files under consideration. For instance: `data/*.*` for all files in the `data`-directory. <br><br> compressor: String. Any of `bz2`, `zlib`, `snappy`, `pylzma`. Using `snappy` or `pylzma` requires installation of those libraries. Default: `bz2`.<br><br>compression_level: Int. The compression level (higher is usually better for approaching Kolmogorov Complexity). When using `snappy`-compressor, the `compression_level` is ignored. Default: `9`.|
-| nwd(l, compressor="bing") | Computes Normalized Web Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: String. Any of `bing`, `google`, `duckduckgo`, `wikipedia`, `hackernews`. **Note:** Most search engines do not allow automated access in their Terms of Service. Though Koolmogorov does not hammer the search engines (it uses sleep to limit requests per second), search engines may not appreciate that many automated requests from a single IP. Use at your own discretion and calculate risk of a (temporary) ban. Default: `bing`.|
-| ncmsd(l, compressor=ind) | Computer Normalized Count-Min Sketch Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: ind. A Count-Min Sketch indexed on certain corpora using MakeIndex.|
+| ncd(loc_files, compressor="bz2", compression_level=9) | Computes Normalized Compression Distance between a collection of files.<br><br>loc_files: glob. Location to the files under consideration. For instance: `data/*.*` for all files in the `data`-directory. <br><br> compressor: String. Any of `bz2`, `zlib`, `snappy`, `pylzma`. Using `snappy` or `pylzma` requires installation of those libraries. Default: `bz2`.<br><br>compression_level: Int. The compression level (higher is usually better for approaching Kolmogorov Complexity). When using `snappy`-compressor, the `compression_level` is ignored. Default: `9`.<br><br>Returns: distance_matrix: Dict. A Dictionary with tuples for keys and distances for values.|
+| nwd(l, compressor="bing") | Computes Normalized Web Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: String. Any of `bing`, `google`, `duckduckgo`, `wikipedia`, `hackernews`. **Note:** Most search engines do not allow automated access in their Terms of Service. Though Koolmogorov does not hammer the search engines (it uses sleep to limit requests per second), search engines may not appreciate that many automated requests from a single IP. Use at your own discretion and calculate risk of a (temporary) ban. Default: `bing`.<br><br>Returns: distance_matrix: Dict. A Dictionary with tuples for keys and distances for values.|
+| ncmsd(l, compressor=ind) | Computer Normalized Count-Min Sketch Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: ind. A Count-Min Sketch indexed on certain corpora using MakeIndex.<br><br>Returns: distance_matrix: Dict. A Dictionary with tuples for keys and distances for values.|
 
 
 ### MakeTree(verbose=0, random_state=None, n_jobs=1, n_iters=100, method="native")
