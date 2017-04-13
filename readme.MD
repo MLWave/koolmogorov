@@ -154,15 +154,15 @@ We look at co-occurence of word tokens inside sentences of the Lord of the Rings
 from koolmogorov import MakeIndex, MakeDistanceMatrix, MakeTree, MakeViz
 
 tokens = ["two",
-		  "three",
-		  "four",
-		  "red",
-		  "blue",
-		  "green",
-		  "smjagol",
-		  "gollum",
-		  "frodo",
-		  "ring"]
+          "three",
+          "four",
+          "red",
+          "blue",
+          "green",
+          "smjagol",
+          "gollum",
+          "frodo",
+          "ring"]
 
 mi = MakeIndex()
 ind = mi.index(mi.sentence_splitter("lotr.txt"), 
@@ -176,10 +176,10 @@ G, score = mt.fit_transform(dm)
 
 mv = MakeViz()
 mv.visualize(G, 
-			 method="3Djs", 
-			 score=score, 
-			 compressor="Lord of the Rings", 
-			 title="Semantic Word Analysis on LOTR Trilogy")
+             method="3Djs", 
+             score=score, 
+             compressor="Lord of the Rings", 
+             title="Semantic Word Analysis on LOTR Trilogy")
 ```
 
 Result:
