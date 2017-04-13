@@ -186,7 +186,7 @@ Result:
 
 ![LOTR dendrogram](http://i.imgur.com/jUNd4dO.png)
 
-Live demo: http://mlwave.github.io/Semantic-Word-Analysis-on-LOTR-Trilogy.html
+Live demo: http://mlwave.github.io/tda/Semantic-Word-Analysis-on-LOTR-Trilogy.html
 
 ### Word Semantics
 
