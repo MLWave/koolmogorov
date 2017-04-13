@@ -205,6 +205,65 @@ mv = MakeViz()
 mt.visualize(G, method="d3js")
 ```
 
+### Prime Number Classification
+
+We use Yahoo search engine as a compressor to classify prime numbers.
+
+```
+import numpy as np
+from sklearn import svm, cross_validation
+from koolmogorov import MakeAnchorVector
+
+# We have a train set with 10 prime numbers and 10 non-prime numbers
+train = ["6029", "5953", "499", "157", "137", "71", "977", "5323", "7919", "3851",
+         "4028", "5334", "501", "1780", "1020", "3173", "4121", "6215", "7023", "7407"]
+y = [1] * 10
+y += [0] * 10
+y = np.array(y)
+
+# For anchors we use 6 prime numbers
+anchors = ["433", "919", "1123", "2099", "5233", "7589"]
+
+# We create anchor vectors for the train set with Yahoo search engine
+mav = MakeAnchorVector()
+X = np.array(mav.nwd(train, anchors, compressor="yahoo"))
+
+# We check leave-one-out performance with a Support Vector Classifier
+clf = svm.SVC(probability=True, random_state=42)
+kf = cross_validation.KFold(20, n_folds=20, random_state=1, shuffle=False)
+for i, (train_fold, test_fold) in enumerate(kf):
+	X_train = X[train_fold]
+	y_train = y[train_fold]
+	X_test = X[test_fold]
+	y_test = y[test_fold]
+	sample_test = train[test_fold]
+	clf.fit(X_train, y_train)
+	print(i+1, sample_test, "%f"%clf.predict_proba(X_test)[:,1][0], y_test[0])
+```
+We get 100% accuracy with 0.5 as a threshold:
+```
+(1,  '6029', '0.581687', 1)
+(2,  '5953', '0.587490', 1)
+(3,   '499', '0.563200', 1)
+(4,   '157', '0.562242', 1)
+(5,   '137', '0.559748', 1)
+(6,    '71', '0.559738', 1)
+(7,   '977', '0.569535', 1)
+(8,  '5323', '0.585396', 1)
+(9,  '7919', '0.593069', 1)
+(10, '3851', '0.586171', 1)
+(11, '4028', '0.447882', 0)
+(12, '5334', '0.448476', 0)
+(13,  '501', '0.441458', 0)
+(14, '1780', '0.449435', 0)
+(15, '1020', '0.447405', 0)
+(16, '3173', '0.450983', 0)
+(17, '4121', '0.449847', 0)
+(18, '6215', '0.449977', 0)
+(19, '7023', '0.450984', 0)
+(20, '7407', '0.451069', 0)
+```
+
 ## Documentation
 
 ### MakeIndex(verbose=0, w=1000000, d=5)
