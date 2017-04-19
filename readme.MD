@@ -1,9 +1,8 @@
 # Koolmogorov
 
-Koolmogorov is a hierarchical clustering and visualization library in Python based on [CompLearn](http://complearn.org/). 
+Koolmogorov is a machine learning, hierarchical clustering, and visualization library in Python based on [CompLearn](http://complearn.org/). Koolmogorov uses approaches, techniques, and data structures from:
 
-Koolmogorov uses approaches, techniques, and data structures from:
-
+- Algorithmic Information Theory
 - Kolmogorov Complexity (https://www.jstor.org/stable/25049284)
 - Normalized Information Distance (https://arxiv.org/abs/0809.2553)
 - Normalized Compression Distance (https://arxiv.org/abs/cs/0312044)
@@ -289,10 +288,9 @@ Note how non-primes ending with an uneven number get a slightly higher probabili
 
 | Function | Description |
 | --- | --- |
-| ncd(loc_files, compressor="bz2", compression_level=9) | Computes Normalized Compression Distance between a collection of files.<br><br>loc_files: glob. Location to the files under consideration. For instance: `data/*.*` for all files in the `data`-directory. <br><br> compressor: String. Any of `bz2`, `zlib`, `snappy`, `pylzma`. Using `snappy` or `pylzma` requires installation of those libraries. Default: `bz2`.<br><br>compression_level: Int. The compression level (higher is usually better for approaching Kolmogorov Complexity). When using `snappy`-compressor, the `compression_level` is ignored. Default: `9`.<br><br>Returns: distance_matrix: Dict. A Dictionary with tuples for keys and distances for values.|
-| nwd(l, compressor="bing") | Computes Normalized Web Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: String. Any of `bing`, `google`, `duckduckgo`, `wikipedia`, `hackernews`. **Note:** Most search engines do not allow automated access in their Terms of Service. Though Koolmogorov does not hammer the search engines (it uses sleep to limit requests per second), search engines may not appreciate that many automated requests from a single IP. Use at your own discretion and calculate risk of a (temporary) ban. Default: `bing`.<br><br>Returns: distance_matrix: Dict. A Dictionary with tuples for keys and distances for values.|
+| ncd(loc_files, compressor="bz2", compression_level=9) | Computes Normalized Compression Distance between a collection of files.<br><br>loc_files: glob. Location to the files under consideration. For instance: `data/*.*` for all files in the `data`-directory. <br><br> compressor: String. Any of `bz2`, `zlib`, `snappy`, `brotli`, `pylzma`. Using `snappy`, `brotli` or `pylzma` requires installation of those libraries. Default: `bz2`.<br><br>compression_level: Int. The compression level (higher is usually better for approaching Kolmogorov Complexity). When using `snappy`-compressor, the `compression_level` is ignored. Default: `9`.<br><br>Returns: distance_matrix: Dict. A Dictionary with tuples for keys and distances for values.|
+| nwd(l, compressor="bing") | Computes Normalized Web Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: String. Any of `bing`, `google`, `yahoo`, `wikipedia`, `hackernews`. **Note:** Most search engines do not allow automated access in their Terms of Service. Though Koolmogorov does not hammer the search engines (it uses sleep to limit requests per second), search engines may not appreciate that many automated requests from a single IP. Use at your own discretion and calculate risk of a (temporary) ban. Default: `bing`.<br><br>Returns: distance_matrix: Dict. A Dictionary with tuples for keys and distances for values.|
 | ncmsd(l, compressor=ind) | Computer Normalized Count-Min Sketch Distance between a list of strings.<br><br>l: list of strings.<br><br> compressor: ind. A Count-Min Sketch indexed on certain corpora using MakeIndex.<br><br>Returns: distance_matrix: Dict. A Dictionary with tuples for keys and distances for values.|
-
 
 ### MakeTree(verbose=0, random_state=None, n_jobs=1, n_iters=100, method="native")
 
@@ -308,3 +306,40 @@ Note how non-primes ending with an uneven number get a slightly higher probabili
 | --- | --- |
 | fit_transform(dm) | Builds a tree from a distance matrix. <br><br>Given a dictionary with tuples for keys and distance for values, computes a networkx tree object. <br><br> dm: Dict. A Dictionary with tuples for keys and distances for values. Distances between objects themselves are not stored. Both directions should be stored. For instance, with two objects "bill" and "gates", the distance_matrix may look like: `{("bill", "gates"): 0.15, ("gates", "bill"): 0.15}` <br><br> Returns: G. NetworkX Graph Object. |
 
+## Theory
+
+Computation can be done with a Turing machine on a binary input string. Anything that a human can calculate, can be computed with a Turing machine. All objects, like DNA, 3D point clouds, prime numbers, documents, agents, populations, and universes have a (possibly course-grained) binary string representation. The counting arguments tells us that the majority of strings can not be compressed, yet most objects that we care about have some ordered regularities: They can be compressed.
+
+Compression is related to understanding and prediction. Optimal compressions of physical reality yielded short elegant programs like Newton's law of gravity or computer programs calculating the digits of Pi. Compression can be measured by looking at compression ratio's. The more regularities (patterns, laws) the compressor has found in the data, the higher the compression ratio. The absolute shortest program to produce a string gets the highest possible compression ratio.
+
+The Kolmogorov Complexity of a string is the length (in bits) of the shortest program that produces that string. The more information (unpredictable randomness) a string has, the longer this shortest program is. A string is Kolmogorov Random if the shortest program to produce it is not smaller than that string itself: There is no compression possible, there are no patterns or predictable regularities.
+
+The Information Distance between two strings is the length (in bits) of the shortest program that transforms one string into another string [2]. This makes it a universal distance measure for objects of all kinds. We apply normalization to take into account the different lengths of the two strings under comparison. The longer the length of the shortest program, the more different two strings are: many computations are needed for the transformation.
+
+Information distance is based on Kolmogorov Complexity. Unfortunately Kolmogorov Complexity is not computable. Take this Python function:
+
+```
+def generate_complexity():
+    i = 1
+    while True:
+      program = "{0:08b}".format(i)
+      i += 1
+      if kolmogorov_complexity(program) > 900000000:
+        return program
+```
+
+The function will try every possible binary program, until it finds a program where the shortest description of that program is larger than 800000000 bits. But `generate_complexity` itself is less than 900000000 bits. And so the shortest program length we have found actually has an even shorter description: `generate_complexity()`, which is a contradiction.
+
+Fortunately we can approach Kolmogorov Complexity by using a variaty of compression algorithms and this is exactly what Koolmogorov is doing under the hood.
+
+Using compressors we can apply the Normalized Information Distance with Normalized Compression Distance (`.ncd()`). To approach Kolmogorov Complexity it is substituted with compression algorithms. Normalized Compression Distance looks at the individual lengths of compressing two strings vs. the length of compressing their concatenation. If the two strings concatenated share data patterns, an intelligent compressor can use this repetitive predictable data to compress these concatenated strings better.
+
+Normalized Web Distance (`.nwd()`) uses search engines as a compressor. Formerly called Normalized Google Distance, this method looks at aggregate page counts of words individually and in concatenation. Words that co-occur more often, are counted as more semantically similar.
+
+Normalized Count-min Sketch Distance (`.ncmsd()`) uses a count-min sketch as a compressor. A Count-min Sketch is a datastructure for approximate counting of events in data streams. We can fit a Count-min Sketch on co-occurence data of strings in a corpus, or collection of corpora. Then the Count-min sketch can be queried just like with Normalized Web Distance.
+
+With Normalized Anchor Distance we can create vectors for any object by calculating NCD, NWD, or NCMSD between the object and a collection of anchors. These anchors can be anything: random data, different languages, locations, negative sentiment. Vectorized objects can be treated as a semantic knowledge library, dimensionality reduction before clustering, or used for unsupervised and supervised learning.
+
+A New Quartet Tree Heuristic for Hierarchical Clustering mutates an initially random unrooted dendrogram until it approaches an optimal weighting of quartet topologies. These trees can be visualized and used for unsupervised data exploration.
+
+One trick from topological data analysis is to determine "exploratory variables" and the ability to color the graph by a function of interest.
