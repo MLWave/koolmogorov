@@ -308,15 +308,15 @@ Note how non-primes ending with an uneven number get a slightly higher probabili
 
 ## Theory
 
-Computation can be done with a Turing machine on a binary input string. Anything that a human can calculate, can be computed with a Turing machine. [1] All objects, like DNA, 3D point clouds, prime numbers, documents, agents, populations, and universes have a (possibly course-grained) binary string representation. [2] The counting argument tells us that the majority of strings can not be compressed, yet most objects that we care about have some ordered regularities: They can be compressed. [3]
+Computation can be done with a Turing machine on a binary input string. Anything that a human can calculate, can be computed with a Turing machine. <sup>[1]</sup> All objects, like DNA, 3D point clouds, prime numbers, documents, agents, populations, and universes have a (possibly course-grained) binary string representation.  <sup>[2]</sup> The counting argument tells us that the majority of strings can not be compressed, yet most objects that we care about have some ordered regularities: They can be compressed.  <sup>[3]</sup>
 
-Compression is related to understanding and prediction. [4] Optimal compressions of physical reality yielded short elegant predictive programs like Newton's law of gravity or computer programs calculating the digits of Pi. [5] Compression can be measured by looking at compression ratio's. [6] The more regularities (predictable patterns, laws) the compressor has found in the data, the higher the compression ratio. The absolute shortest program to produce a string gets the highest possible compression ratio.
+Compression is related to understanding and prediction.  <sup>[4]</sup> Optimal compressions of physical reality yielded short elegant predictive programs like Newton's law of gravity or computer programs calculating the digits of Pi.  <sup>[5]</sup> Compression can be measured by looking at compression ratio's.  <sup>[6]</sup> The more regularities (predictable patterns, laws) the compressor has found in the data, the higher the compression ratio. The absolute shortest program to produce a string gets the highest possible compression ratio.
 
-The Kolmogorov Complexity of a string is the length (in bits) of the shortest program that produces that string. [7] The more information (unpredictable randomness) a string has, the longer this shortest program has to be. [8] A string is Kolmogorov Random if the shortest program to produce it is not smaller than that string itself: There is no more compression possible, there are no patterns or predictable regularities. [9]
+The Kolmogorov Complexity of a string is the length (in bits) of the shortest program that produces that string.  <sup>[7]</sup> The more information (unpredictable randomness) a string has, the longer this shortest program has to be.  <sup>[8]</sup> A string is Kolmogorov Random if the shortest program to produce it is not smaller than that string itself: There is no more compression possible, there are no patterns or predictable regularities.  <sup>[9]</sup>
 
-The Information Distance between two strings is the length (in bits) of the shortest program that transforms one string into another string [10]. This makes it a universal distance measure for objects of all kinds. We apply normalization to take into account the different lengths of the two strings under comparison. [11] The longer the length of the shortest program, the more different two strings are: many computations are needed for the transformation. [12]
+The Information Distance between two strings is the length (in bits) of the shortest program that transforms one string into another string  <sup>[10]</sup>. This makes it a universal distance measure for objects of all kinds. We apply normalization to take into account the different lengths of the two strings under comparison.  <sup>[11]</sup> The longer the length of the shortest program, the more different two strings are: many computations are needed for the transformation.  <sup>[12]</sup>
 
-Information distance is based on Kolmogorov Complexity. Unfortunately Kolmogorov Complexity is not computable. [13] Take this Python function:
+Information distance is based on Kolmogorov Complexity. Unfortunately Kolmogorov Complexity is not computable.  <sup>[13]</sup> Take this Python function:
 
 ```
 def generate_complexity():
@@ -328,23 +328,21 @@ def generate_complexity():
         return program
 ```
 
-The function will try every possible binary program, until it finds a program where the shortest description of that program is larger than 900000000 bits. But `generate_complexity` itself is less than 900000000 bits. And so the shortest program length we have found actually has an even shorter description: `generate_complexity()`, which is a contradiction, much like the Berry Paradox: "The<sub>1</sub> smallest<sub>2</sub> positive<sub>3</sub> integer<sub>4</sub> not<sub>5</sub> definable<sub>6</sub> in<sub>7</sub> under<sub>8</sub> twelve<sub>9</sub> words<sub>10</sub>". [14]
+The function will try every possible binary program, until it finds a program where the shortest description of that program is larger than 900000000 bits. But `generate_complexity` itself is less than 900000000 bits. And so the shortest program length we have found actually has an even shorter description: `generate_complexity()`, which is a contradiction, much like the Berry Paradox: "The<sub>1</sub> smallest<sub>2</sub> positive<sub>3</sub> integer<sub>4</sub> not<sub>5</sub> definable<sub>6</sub> in<sub>7</sub> under<sub>8</sub> twelve<sub>9</sub> words<sub>10</sub>".  <sup>[14]</sup>
 
 Fortunately we can approach Kolmogorov Complexity by using a variaty of compression algorithms and this is exactly what Koolmogorov is doing under the hood.
 
-Using compressors we can apply the Normalized Information Distance with Normalized Compression Distance [15]. To approach Kolmogorov Complexity it is substituted with compression algorithms. Normalized Compression Distance looks at the individual lengths of compressing two strings vs. the length of compressing their concatenation. If the two strings share data patterns, an intelligent compressor can use this repetitive predictable data to compress these concatenated strings better.
+Using compressors we can apply the Normalized Information Distance with Normalized Compression Distance  <sup>[15]</sup>. To approach Kolmogorov Complexity it is substituted with compression algorithms. Normalized Compression Distance looks at the individual lengths of compressing two strings vs. the length of compressing their concatenation. If the two strings share data patterns, an intelligent compressor can use this repetitive predictable data to compress these concatenated strings better.
 
-Normalized Web Distance uses search engines as a compressor [16]. Formerly called Normalized Google Distance, this method looks at aggregate page counts of words individually and in concatenation. [17] Words that co-occur more often, are counted as more semantically similar.
+Normalized Web Distance uses search engines as a compressor <sup>[16]</sup>. Formerly called Normalized Google Distance, this method looks at aggregate page counts of words individually and in concatenation.  <sup>[17]</sup> Words that co-occur more often, are counted as more semantically similar.
 
-Normalized Count-min Sketch Distance uses a count-min sketch as a compressor. A Count-min Sketch is a datastructure for approximate counting of events in data streams. [18] We can fit a Count-min Sketch on co-occurence data of strings in a corpus, or collection of corpora. [19] Then the Count-min sketch can be queried just like with Normalized Web Distance.
+Normalized Count-min Sketch Distance uses a count-min sketch as a compressor. A Count-min Sketch is a datastructure for approximate counting of events in data streams.  <sup>[18]</sup> We can fit a Count-min Sketch on co-occurence data of strings in a corpus, or collection of corpora.  <sup>[19]</sup> Then the Count-min sketch can be queried just like with Normalized Web Distance.
 
-With Normalized Anchor Distance we can create vectors for any object by calculating NCD, NWD, or NCMSD between the object and a collection of anchors. These anchors can be anything: random data, different languages, locations, negative sentiment. Vectorized objects can be treated as a semantic knowledge library, dimensionality reduction before clustering, or used for unsupervised and supervised learning. [20]
+With Normalized Anchor Distance we can create vectors for any object by calculating NCD, NWD, or NCMSD between the object and a collection of anchors. These anchors can be anything: random data, different languages, locations, negative sentiment. Vectorized objects can be treated as a semantic knowledge library, dimensionality reduction before clustering, or used for unsupervised and supervised learning.  <sup>[20]</sup>
 
 A New Quartet Tree Heuristic for Hierarchical Clustering mutates an initially random unrooted dendrogram until it approaches an optimal weighting of quartet topologies. These trees can be visualized and used for unsupervised data exploration.
 
 One trick from topological data analysis is to determine "exploratory variables" and the ability to color the graph by a function of interest.
-
-[]()
 
 [1] Turing A., [Systems of Logic Based on Ordinals](https://webspace.princeton.edu/users/jedwards/Turing%20Centennial%202012/Mudd%20Archive%20files/12285_AC100_Turing_1938.pdf) (1938) <br>
 [2] Wheeler J. A.: [Information, Physics, Quantum: The Search for Links](http://cqi.inf.usi.ch/qic/wheeler.pdf) (1989)<br>
