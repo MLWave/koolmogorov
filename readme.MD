@@ -344,23 +344,25 @@ A New Quartet Tree Heuristic for Hierarchical Clustering mutates an initially ra
 
 One trick from topological data analysis is to determine "exploratory variables" and the ability to color the graph by a function of interest.
 
-[1] Turing A., Systems of Logic Based on Ordinals (1938) https://webspace.princeton.edu/users/jedwards/Turing%20Centennial%202012/Mudd%20Archive%20files/12285_AC100_Turing_1938.pdf<br>
-[2] Wheeler J. A., Information, Physics, Quantum: The Search for Links (1989) http://cqi.inf.usi.ch/qic/wheeler.pdf<br>
-[3] Cilibrasi R., Statistical Inference Through Data Compression (2007) https://www.illc.uva.nl/Research/Publications/Dissertations/DS-2007-01.text.pdf<br>
-[4] Mahoney M., Data Compression Explained (2010) http://mattmahoney.net/dc/dce.html<br>
-[5] Schmidhuber J., On Learning to Think: Algorithmic Information Theory for Novel Combinations of Reinforcement Learning Controllers and Recurrent Neural World Models (2015) https://arxiv.org/abs/1511.09249<br>
-[6] Bowery J. Mahoney M. Hutter M., 50'000€ Prize for Compressing Human Knowledge (2006) http://prize.hutter1.net/<br>
-[7] Li M. Vitanyi P. An introduction to Kolmogorov Complexity and its applications (1992) http://www-2.dc.uba.ar/materias/azar/bibliografia/LiVitanyi1997AnIntroductiontoKolmogorov.pdf<br>
-[8] Shannon C.: A Mathematical Theory of Communication (1948) http://math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf<br>
-[9] Fortnow L. by Gale, A.: Kolmogorov Complexity (2000) https://people.cs.uchicago.edu/~fortnow/papers/kaikoura.pdf<br>
-[10] Bennett C., Gacs P., Li M., Vitanyi P., Zurek W.: Information Distance (1993) https://arxiv.org/abs/1006.3520<br>
-[11] Vitanyi P., Balbach F., Cilibrasi R., Li M.: Normalized Information Distance (2008) http://homepages.cwi.nl/~paulv/papers/chapter08.pdf<br>
-[12] Levenshtein V.: Binary codes capable of correcting deletions, insertions, and reversals (1963) https://nymity.ch/sybilhunting/pdf/Levenshtein1966a.pdf<br>
-[13] Chaitin G., Arslanov A., Calude C.: Program-size Complexity Computes the Halting Problem (1995) https://researchspace.auckland.ac.nz/bitstream/handle/2292/3517/008HHP.pdf<br>
-[14] Chaitin G.: The Berry Paradox (1995) https://www.cs.auckland.ac.nz/~chaitin/unm2.html<br>
-[15] Cilibrasi R., Vitanyi P.: Clustering by compression (2003) https://arxiv.org/abs/cs/0312044<br>
-[16] Cilibrasi R., Vitanyi P.: Normalized Web Distance and Word Similarity (2009) https://arxiv.org/abs/0905.4039<br>
-[17] Cilibrasi R., Vitanyi P.: The Google Similarity Distance (2004) https://arxiv.org/abs/cs/0412098<br>
-[18] Cormode G., Muthukrishnan S.: An Improved Data Stream Summary: The Count-Min Sketch and its Applications (2003) http://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf<br>
-[19] Goyal A. Daume III H. Cormode, G.: Sketch Algorithms for Estimating Point Queries in NLP ttp://www.umiacs.umd.edu/~amit/Papers/goyalPointQueryEMNLP12.pdf<br>
-[20] Palatucci M., Pomerleau D., Hinton G., T. Mitchell: Zero-Shot Learning with Semantic Output Codes (2012) https://www.cs.cmu.edu/~fmri/papers/zero-shot-learning.pdf<br>
+[]()
+
+[1] Turing A., [Systems of Logic Based on Ordinals](https://webspace.princeton.edu/users/jedwards/Turing%20Centennial%202012/Mudd%20Archive%20files/12285_AC100_Turing_1938.pdf) (1938) <br>
+[2] Wheeler J. A.: [Information, Physics, Quantum: The Search for Links](http://cqi.inf.usi.ch/qic/wheeler.pdf) (1989)<br>
+[3] Cilibrasi R., [Statistical Inference Through Data Compression](https://www.illc.uva.nl/Research/Publications/Dissertations/DS-2007-01.text.pdf) (2007)<br>
+[4] Mahoney M., [Data Compression Explained](http://mattmahoney.net/dc/dce.html) (2010) <br>
+[5] Schmidhuber J., [On Learning to Think: Algorithmic Information Theory for Novel Combinations of Reinforcement Learning Controllers and Recurrent Neural World Models](https://arxiv.org/abs/1511.09249) (2015) <br>
+[6] Bowery J. Mahoney M. Hutter M.: [50'000€ Prize for Compressing Human Knowledge](http://prize.hutter1.net/) (2006)<br>
+[7] Li M. Vitanyi P.: [An introduction to Kolmogorov Complexity and its applications](http://www-2.dc.uba.ar/materias/azar/bibliografia/LiVitanyi1997AnIntroductiontoKolmogorov.pdf) (1992)<br>
+[8] Shannon C.: [A Mathematical Theory of Communication](http://math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf) (1948)<br>
+[9] Fortnow L. by Gale, A.: [Kolmogorov Complexity](https://people.cs.uchicago.edu/~fortnow/papers/kaikoura.pdf) (2000) <br>
+[10] Bennett C., Gacs P., Li M., Vitanyi P., Zurek W.: [Information Distance](https://arxiv.org/abs/1006.3520) (1993) <br>
+[11] Vitanyi P., Balbach F., Cilibrasi R., Li M.: [Normalized Information Distance](http://homepages.cwi.nl/~paulv/papers/chapter08.pdf) (2008)<br>
+[12] Levenshtein V.: [Binary codes capable of correcting deletions, insertions, and reversals](https://nymity.ch/sybilhunting/pdf/Levenshtein1966a.pdf) (1963)<br>
+[13] Chaitin G., Arslanov A., Calude C.: [Program-size Complexity Computes the Halting Problem](https://researchspace.auckland.ac.nz/bitstream/handle/2292/3517/008HHP.pdf) (1995)<br>
+[14] Chaitin G.: [The Berry Paradox](https://www.cs.auckland.ac.nz/~chaitin/unm2.html) (1995) <br>
+[15] Cilibrasi R., Vitanyi P.: [Clustering by compression](https://arxiv.org/abs/cs/0312044) (2003)<br>
+[16] Cilibrasi R., Vitanyi P.: [Normalized Web Distance and Word Similarity](https://arxiv.org/abs/0905.4039) (2009) <br>
+[17] Cilibrasi R., Vitanyi P.: [The Google Similarity Distance](https://arxiv.org/abs/cs/0412098) (2004) <br>
+[18] Cormode G., Muthukrishnan S.: [An Improved Data Stream Summary: The Count-Min Sketch and its Applications](http://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf) (2003) <br>
+[19] Goyal A. Daume III H. Cormode, G.: [Sketch Algorithms for Estimating Point Queries in NLP](http://www.umiacs.umd.edu/~amit/Papers/goyalPointQueryEMNLP12.pdf) (2012)<br>
+[20] Palatucci M., Pomerleau D., Hinton G., T. Mitchell: [Zero-Shot Learning with Semantic Output Codes](https://www.cs.cmu.edu/~fmri/papers/zero-shot-learning.pdf) (2012) <br>
