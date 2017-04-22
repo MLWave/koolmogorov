@@ -308,6 +308,8 @@ Note how non-primes ending with an uneven number get a slightly higher probabili
 
 ## Theory
 
+> Algoritmic Information Theory is the result of putting Shannon's information theory and Turing's computability theory into a cocktail shaker and shaking vigorously. The basic idea is to measure the complexity of an object by the size in bits of the smallest program for computing it <sub>— Gregory Chaitin, Centre for Discrete Mathematics and Theoretical Computer Science</sub>
+
 Computation can be done with a Turing machine on a binary input string. Anything that a human can calculate, can be computed with a Turing machine. <sup>[1]</sup> All objects, like DNA, 3D point clouds, prime numbers, documents, agents, populations, and universes have a (possibly course-grained) binary string representation.  <sup>[2]</sup> The counting argument tells us that the majority of strings can not be compressed, yet most objects that we care about have some ordered regularities: They can be compressed.  <sup>[3]</sup>
 
 Compression is related to understanding and prediction.  <sup>[4]</sup> Optimal compressions of physical reality yielded short elegant predictive programs like Newton's law of gravity or computer programs calculating the digits of Pi.  <sup>[5]</sup> Compression can be measured by looking at compression ratio's.  <sup>[6]</sup> The more regularities (predictable patterns, laws) the compressor has found in the data, the higher the compression ratio. The absolute shortest program to produce a string gets the highest possible compression ratio.
