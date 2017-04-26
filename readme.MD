@@ -346,6 +346,27 @@ A New Quartet Tree Heuristic for Hierarchical Clustering mutates an initially ra
 
 One trick from topological data analysis is to determine "exploratory variables" and the ability to color the graph by a function of interest.
 
+The brain is a lossy compressor. There is not enough brain capacity to infer everything there is to know about the universe. <sup>[21]</sup> By removing noise and slight variations and keeping the most significant features we both save energy and we gain categorization: Even though two lions are not exactly the same, if we look at their significant features, we can group all lions together. <sup>[22]</sup>
+
+Coarse-graining can move the description of a complex system into higher levels of abstraction. We can coarse-grain strings and compare Shanon Entropy between coarse-graining and the original to see how much information we retained. <sup>[23]</sup> Coarse-graining neatly acts a preprocessing step for lossless compression algorithms. Take the following string:
+
+```
+inthebeginninggodcreatedtheheavensandtheearth
+```
+
+we can coarse-grain (lossy compress) by encoding only vowels vs. non-vowels:
+
+```
+100010101001000100011010001011010010000111000
+```
+Compression here is reduction of the code book (24 possible characters vs. 2 possible characters). We can also coarse-grain by removing stop words:
+```
+beginninggodcreatedheavensearth
+```
+Compression here is a literal reduction of the file length.
+
+Using coarse-graining we can study the effect of applying information distance between original strings and coarse-grained strings.
+
 [1] Turing A., [Systems of Logic Based on Ordinals](https://webspace.princeton.edu/users/jedwards/Turing%20Centennial%202012/Mudd%20Archive%20files/12285_AC100_Turing_1938.pdf) (1938) <br>
 [2] Wheeler J. A.: [Information, Physics, Quantum: The Search for Links](http://cqi.inf.usi.ch/qic/wheeler.pdf) (1989)<br>
 [3] Cilibrasi R., [Statistical Inference Through Data Compression](https://www.illc.uva.nl/Research/Publications/Dissertations/DS-2007-01.text.pdf) (2007)<br>
@@ -366,3 +387,6 @@ One trick from topological data analysis is to determine "exploratory variables"
 [18] Cormode G., Muthukrishnan S.: [An Improved Data Stream Summary: The Count-Min Sketch and its Applications](http://dimacs.rutgers.edu/~graham/pubs/papers/cm-full.pdf) (2003) <br>
 [19] Goyal A. Daume III H. Cormode, G.: [Sketch Algorithms for Estimating Point Queries in NLP](http://www.umiacs.umd.edu/~amit/Papers/goyalPointQueryEMNLP12.pdf) (2012)<br>
 [20] Palatucci M., Pomerleau D., Hinton G., T. Mitchell: [Zero-Shot Learning with Semantic Output Codes](https://www.cs.cmu.edu/~fmri/papers/zero-shot-learning.pdf) (2012) <br>
+[21] Wolpert D.: [Statistical Limits of Inference](https://arxiv.org/abs/0708.1362) (2007)<br>
+[22] Anderson J. A.: [After Digital: Computation as Done by Brains and Machines](https://books.google.com/books?id=KwJLDgAAQBAJ&printsec=frontcover&dq=After+Digital:+Computation+as+Done+by+Brains+and+Machines) (2017)<br>
+[23] Wolpert D., Grochow J. A., Libby E., DeDeo S.: [Optimal high-level descriptions of dynamical systems](https://arxiv.org/abs/1409.7403) (2015)
