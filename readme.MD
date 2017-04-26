@@ -440,6 +440,6 @@ The very simple strings [1-3] will be closer to strings [7-12]. The majority of 
 [21] Wolpert D.: [Statistical Limits of Inference](https://arxiv.org/abs/0708.1362) (2007)<br>
 [22] Anderson J. A.: [After Digital: Computation as Done by Brains and Machines](https://books.google.com/books?id=KwJLDgAAQBAJ&printsec=frontcover&dq=After+Digital:+Computation+as+Done+by+Brains+and+Machines) (2017)<br>
 [23] Wolpert D., Grochow J. A., Libby E., DeDeo S.: [Optimal high-level descriptions of dynamical systems](https://arxiv.org/abs/1409.7403) (2015)<br>
-[24] Hastie T., ‎Tibshirani R., ‎Friedman J. [The Elements of Statistical Learning: Data Mining, Inference, and Prediction](https://statweb.stanford.edu/~tibs/ElemStatLearn/printings/ESLII_print10.pdf) (2009)
+[24] Hastie T., ‎Tibshirani R., ‎Friedman J. [The Elements of Statistical Learning: Data Mining, Inference, and Prediction](https://statweb.stanford.edu/~tibs/ElemStatLearn/printings/ESLII_print10.pdf) (2009)<br>
 [25] Leman D., Feelders A., Knobbe A.: [Exceptional Model Mining](https://www.kiminkii.com/publications/PKDD2008.pdf) (2008)<br>
 [26] Bengio Y., Courville A., Vincent P.: [Representation Learning: A Review and New Perspectives](http://www.cl.uni-heidelberg.de/courses/ws14/deepl/BengioETAL12.pdf)
