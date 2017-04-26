@@ -396,7 +396,7 @@ Using coarse-graining we can study the effect of applying information distance b
 
 ### Shanon Information Theory vs. Autosophy Information Theory
 
-If someone communicates the lossy string `beginninggodcreatedheavensearth`, most people are able to reconstruct the original string without any error. As we share a similar culture, we also share similar code books and convententions about language. <sup>24</sup> Similarly, the string `inthebeginninggodcreatedtheheavensandtheearth` has a shorter program: `open("bible.txt").read()[:45]`.
+If someone communicates the lossy string `beginninggodcreatedheavensearth`, most people are able to reconstruct the original string without any error. As we share a similar culture, we also share similar code books and conventions about language. <sup>24</sup> Similarly, the string `inthebeginninggodcreatedtheheavensandtheearth` has a shorter program: `open("bible.txt").read()[:45]`.
 
 In the Shannon-Weaver model of communication, we need to communicate all the data. We are not allowed to reference shared resources, without communicating these resources in full. In the same vein: For calculating compression ratio's we are required to include the size of decoder. Now the short program `open("bible.txt").read()[:45]` is not so short anymore, since it includes the length of the entire Bible.
 
@@ -448,7 +448,7 @@ The very simple strings [1-3] will be closer to strings [7-12]. The majority of 
 [21] Wolpert D.: [Statistical Limits of Inference](https://arxiv.org/abs/0708.1362) (2007)<br>
 [22] Anderson J. A.: [After Digital: Computation as Done by Brains and Machines](https://books.google.com/books?id=KwJLDgAAQBAJ&printsec=frontcover&dq=After+Digital:+Computation+as+Done+by+Brains+and+Machines) (2017)<br>
 [23] Wolpert D., Grochow J. A., Libby E., DeDeo S.: [Optimal high-level descriptions of dynamical systems](https://arxiv.org/abs/1409.7403) (2015)<br>
-[24] Frege G: [On Sense and Reference](http://brianrabern.net/sensereference.pdf) (1892)<br>
+[24] Frege G.: [On Sense and Reference](http://brianrabern.net/sensereference.pdf) (1892)<br>
 [25] Holtz K.: [A Primer on Information Theories](http://www.autosophy.net/informth.htm) (1977)<br>
 [26] Hastie T., ‎Tibshirani R., ‎Friedman J. [The Elements of Statistical Learning: Data Mining, Inference, and Prediction](https://statweb.stanford.edu/~tibs/ElemStatLearn/printings/ESLII_print10.pdf) (2009)<br>
 [27] Leman D., Feelders A., Knobbe A.: [Exceptional Model Mining](https://www.kiminkii.com/publications/PKDD2008.pdf) (2008)<br>
