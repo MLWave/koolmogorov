@@ -308,15 +308,24 @@ Note how non-primes ending with an uneven number get a slightly higher probabili
 
 ## Theory
 
+### Computation
 > Algoritmic Information Theory is the result of putting Shannon's information theory and Turing's computability theory into a cocktail shaker and shaking vigorously. The basic idea is to measure the complexity of an object by the size in bits of the smallest program for computing it <sub>— Gregory Chaitin, Centre for Discrete Mathematics and Theoretical Computer Science</sub>
 
 Computation can be done with a Turing machine on a binary input string. Anything that a human can calculate, can be computed with a Turing machine. <sup>[1]</sup> All objects, like DNA, 3D point clouds, prime numbers, documents, agents, populations, and universes have a (possibly course-grained) binary string representation.  <sup>[2]</sup> The counting argument tells us that the majority of strings can not be compressed, yet most objects that we care about have some ordered regularities: They can be compressed.  <sup>[3]</sup>
 
+### Compression
+
 Compression is related to understanding and prediction.  <sup>[4]</sup> Optimal compressions of physical reality yielded short elegant predictive programs like Newton's law of gravity or computer programs calculating the digits of Pi.  <sup>[5]</sup> Compression can be measured by looking at compression ratio's.  <sup>[6]</sup> The more regularities (predictable patterns, laws) the compressor has found in the data, the higher the compression ratio. The absolute shortest program to produce a string gets the highest possible compression ratio.
+
+### Kolmogorov Complexity
 
 The Kolmogorov Complexity of a string is the length (in bits) of the shortest program that produces that string.  <sup>[7]</sup> The more information (unpredictable randomness) a string has, the longer this shortest program has to be.  <sup>[8]</sup> A string is Kolmogorov Random if the shortest program to produce it is not smaller than that string itself: There is no more compression possible, there are no patterns or predictable regularities.  <sup>[9]</sup>
 
+### Information Distance
+
 The Information Distance between two strings is the length (in bits) of the shortest program that transforms one string into another string  <sup>[10]</sup>. This makes it a universal distance measure for objects of all kinds. We apply normalization to take into account the different lengths of the two strings under comparison.  <sup>[11]</sup> The longer the length of the shortest program, the more different two strings are: many computations are needed for the transformation.  <sup>[12]</sup>
+
+### Incomputability
 
 Information distance is based on Kolmogorov Complexity. Unfortunately Kolmogorov Complexity is not computable.  <sup>[13]</sup> Take this Python function:
 
@@ -334,21 +343,39 @@ The function will try every possible binary program, until it finds a program wh
 
 Fortunately we can approach Kolmogorov Complexity by using a variaty of compression algorithms and this is exactly what Koolmogorov is doing under the hood.
 
+### Normalized Compression Distance
+
 Using compressors we can apply the Normalized Information Distance with Normalized Compression Distance  <sup>[15]</sup>. To approach Kolmogorov Complexity it is substituted with compression algorithms. Normalized Compression Distance looks at the individual lengths of compressing two strings vs. the length of compressing their concatenation. If the two strings share data patterns, an intelligent compressor can use this repetitive predictable data to compress these concatenated strings better.
+
+### Normalized Web Distance
 
 Normalized Web Distance uses search engines as a compressor <sup>[16]</sup>. Formerly called Normalized Google Distance, this method looks at aggregate page counts of words individually and in concatenation.  <sup>[17]</sup> Words that co-occur more often, are counted as more semantically similar.
 
+### Normalized Count-min Sketch Distance
+
 Normalized Count-min Sketch Distance uses a count-min sketch as a compressor. A Count-min Sketch is a datastructure for approximate counting of events in data streams.  <sup>[18]</sup> We can fit a Count-min Sketch on co-occurence data of strings in a corpus, or collection of corpora.  <sup>[19]</sup> Then the Count-min sketch can be queried just like with Normalized Web Distance.
+
+### Normalized Anchor Distance
 
 With Normalized Anchor Distance we can create vectors for any object by calculating NCD, NWD, or NCMSD between the object and a collection of anchors. These anchors can be anything: random data, different languages, locations, negative sentiment. Vectorized objects can be treated as a semantic knowledge library, dimensionality reduction before clustering, or used for unsupervised and supervised learning.  <sup>[20]</sup>
 
+### Visualization
+
+#### Minimum Quartet Tree Cost
+
 A New Quartet Tree Heuristic for Hierarchical Clustering mutates an initially random unrooted dendrogram until it approaches an optimal weighting of quartet topologies. These trees can be visualized and used for unsupervised data exploration.
+
+#### Topological Data Analysis
 
 One trick from topological data analysis is to determine "exploratory variables" and the ability to color the graph by a function of interest.
 
+### Lossy Compression
+
 The brain is a lossy compressor. There is not enough brain capacity to infer everything there is to know about the universe. <sup>[21]</sup> By removing noise and slight variations and keeping the most significant features we both save energy and we gain categorization: Even though two lions are not exactly the same, if we look at their significant features, we can group all lions together. <sup>[22]</sup>
 
-Coarse-graining can move the description of a complex system into higher levels of abstraction. We can coarse-grain strings and compare Shanon Entropy between coarse-graining and the original to see how much information we retained. <sup>[23]</sup> Coarse-graining neatly acts a preprocessing step for lossless compression algorithms. Take the following string:
+### State-Space Compression
+
+Coarse-graining can move the description of a complex system into higher levels of abstraction. We can coarse-grain strings and compare Shanon Entropy between coarse-graining and the original to see how much information we retained. <sup>[23]</sup> Coarse-graining neatly acts a lossy preprocessing step for lossless compression algorithms. Take the following string:
 
 ```
 inthebeginninggodcreatedtheheavensandtheearth
@@ -366,6 +393,29 @@ beginninggodcreatedheavensearth
 Compression here is a literal reduction of the file length.
 
 Using coarse-graining we can study the effect of applying information distance between original strings and coarse-grained strings.
+
+### Cross-Compression
+
+In statistical modeling we often use a form of cross-validation. First a train set is split up into *n* parts, then we leave 1 part out and use the remaining parts for training, and we repeat this *n* times with different parts. Performance on the out-of-fold data gives an estimate on how the model would perform on unseen data.<sup>[24]</sup> We can apply a similar principle to string compression: we chunk the string into *n* parts. We calculate Normalized Compression Distance between the parts. Parts that are very dissimilar to other parts, denote a part of the object that is complex. <sup>[25]</sup>
+
+The following string describes the object `a white wall with two windows`. We chunk the string into 12 rows of size 16.
+
+```
+1  111111111111111
+2  111111111111111
+3  111111111111111
+4  111000111000111
+5  111000111000111
+6  111000111000111
+7  111111111111111
+8  111111111111111
+9  111111111111111
+10 111111111111111
+11 111111111111111
+12 111111111111111
+```
+The very simple strings [1-3] will be closer to strings [7-12]. The majority of this object has a low complexity. Strings [4-6] have larger cross-compression distance to the majority of other strings: They have a higher object-part complexity. Naturally our attention is drawn to the complex parts of an object. Using cross-compression we can tell *where* a `white wall with two windows` differs from a `white wall with no windows`. Chunking can be done in multiple dimensions and with overlap: 1-D chunks, 2-D convolutions, or i-D hypercubes.
+
 
 [1] Turing A., [Systems of Logic Based on Ordinals](https://webspace.princeton.edu/users/jedwards/Turing%20Centennial%202012/Mudd%20Archive%20files/12285_AC100_Turing_1938.pdf) (1938) <br>
 [2] Wheeler J. A.: [Information, Physics, Quantum: The Search for Links](http://cqi.inf.usi.ch/qic/wheeler.pdf) (1989)<br>
@@ -389,4 +439,6 @@ Using coarse-graining we can study the effect of applying information distance b
 [20] Palatucci M., Pomerleau D., Hinton G., T. Mitchell: [Zero-Shot Learning with Semantic Output Codes](https://www.cs.cmu.edu/~fmri/papers/zero-shot-learning.pdf) (2012) <br>
 [21] Wolpert D.: [Statistical Limits of Inference](https://arxiv.org/abs/0708.1362) (2007)<br>
 [22] Anderson J. A.: [After Digital: Computation as Done by Brains and Machines](https://books.google.com/books?id=KwJLDgAAQBAJ&printsec=frontcover&dq=After+Digital:+Computation+as+Done+by+Brains+and+Machines) (2017)<br>
-[23] Wolpert D., Grochow J. A., Libby E., DeDeo S.: [Optimal high-level descriptions of dynamical systems](https://arxiv.org/abs/1409.7403) (2015)
+[23] Wolpert D., Grochow J. A., Libby E., DeDeo S.: [Optimal high-level descriptions of dynamical systems](https://arxiv.org/abs/1409.7403) (2015)<br>
+[24] Hastie T., ‎Tibshirani R., ‎Friedman J. [The Elements of Statistical Learning: Data Mining, Inference, and Prediction](https://statweb.stanford.edu/~tibs/ElemStatLearn/printings/ESLII_print10.pdf) (2009)
+[25] Leman D., Feelders A., Knobbe A.: [Exceptional Model Mining](https://www.kiminkii.com/publications/PKDD2008.pdf) (2008)
