@@ -394,9 +394,17 @@ Compression here is a literal reduction of the file length.
 
 Using coarse-graining we can study the effect of applying information distance between original strings and coarse-grained strings.
 
-### Cross-Compression
+### Shanon Information Theory vs. Autosophy Information Theory
 
-In statistical modeling we often use a form of cross-validation. First a train set is split up into *n* parts, then we leave 1 part out and use the remaining parts for training, and we repeat this *n* times with different parts. Performance on the out-of-fold data gives an estimate on how the model would perform on unseen data.<sup>[24]</sup> We can apply a similar principle to string compression: we chunk the string into *n* parts. We calculate Normalized Compression Distance between the parts. Parts that are very dissimilar to other parts, denote a part of the object that is complex. <sup>[25]</sup>
+If someone communicates the lossy string `beginninggodcreatedheavensearth`, most people are able to reconstruct the original string without any error. As we share a similar culture, we also share similar code books and convententions about language. <sup>24</sup> Similarly, the string `inthebeginninggodcreatedtheheavensandtheearth` has a shorter program: `open("bible.txt").read()[:45]`.
+
+In the Shannon-Weaver model of communication, we need to communicate all the data. We are not allowed to reference shared resources, without communicating these resources in full. In the same vein: For calculating compression ratio's we are required to include the size of decoder. Now the short program `open("bible.txt").read()[:45]` is not so short anymore, since it includes the length of the entire Bible.
+
+In contrast, Autosophy Information Theory allows communication with references to shared resources. This allows for very high compression rates: A high-density frame from a shared-resource movie can be communicated with just a timestamp and the name of the movie. In this framework, information is only that which creates new knowledge in a receiver. One does not learn what one already knows.<sup>25</sup>
+
+### Cross-Complexity
+
+In statistical modeling we often use a form of cross-validation. First a train set is split up into *n* parts, then we leave 1 part out and use the remaining parts for training, and we repeat this *n* times with different parts. Performance on the out-of-fold data gives an estimate on how the model would perform on unseen data.<sup>[26]</sup> We can apply a similar principle to string compression: we chunk the string into *n* parts. We calculate Normalized Compression Distance between the parts. Parts that are very dissimilar to other parts, denote a part of the object that is complex. <sup>[27]</sup>
 
 The following string describes the object `a white wall with two windows`. We chunk the string into 12 rows of size 16.
 
@@ -414,7 +422,7 @@ The following string describes the object `a white wall with two windows`. We ch
 11 111111111111111
 12 111111111111111
 ```
-The very simple strings [1-3] will be closer to strings [7-12]. The majority of this object has a low complexity. Strings [4-6] have larger cross-compression distance to the majority of other strings: They have a higher object-part complexity. Naturally our attention is drawn to the complex parts of an object. Using cross-compression we can tell *where* a `white wall with two windows` differs from a `white wall with no windows`. <sup>[26]</sup> Chunking can be done in multiple dimensions and with overlap: 1-D chunks, 2-D convolutions, or i-D hypercubes.
+The very simple strings [1-3] will be closer to strings [7-12]. The majority of this object has a low complexity. Strings [4-6] have larger cross-compression distance to the majority of other strings: They have a higher object-part complexity. Naturally our attention is drawn to the complex parts of an object. Using cross-compression we can tell *where* a `white wall with two windows` differs from a `white wall with no windows`. <sup>[28]</sup> Chunking can be done in multiple dimensions and with overlap: Tokenization, 1-D fixed size chunks/chargrams, 2-D convolutions, or i-D hypercubes.
 
 
 [1] Turing A., [Systems of Logic Based on Ordinals](https://webspace.princeton.edu/users/jedwards/Turing%20Centennial%202012/Mudd%20Archive%20files/12285_AC100_Turing_1938.pdf) (1938) <br>
@@ -440,6 +448,8 @@ The very simple strings [1-3] will be closer to strings [7-12]. The majority of 
 [21] Wolpert D.: [Statistical Limits of Inference](https://arxiv.org/abs/0708.1362) (2007)<br>
 [22] Anderson J. A.: [After Digital: Computation as Done by Brains and Machines](https://books.google.com/books?id=KwJLDgAAQBAJ&printsec=frontcover&dq=After+Digital:+Computation+as+Done+by+Brains+and+Machines) (2017)<br>
 [23] Wolpert D., Grochow J. A., Libby E., DeDeo S.: [Optimal high-level descriptions of dynamical systems](https://arxiv.org/abs/1409.7403) (2015)<br>
-[24] Hastie T., ‎Tibshirani R., ‎Friedman J. [The Elements of Statistical Learning: Data Mining, Inference, and Prediction](https://statweb.stanford.edu/~tibs/ElemStatLearn/printings/ESLII_print10.pdf) (2009)<br>
-[25] Leman D., Feelders A., Knobbe A.: [Exceptional Model Mining](https://www.kiminkii.com/publications/PKDD2008.pdf) (2008)<br>
-[26] Bengio Y., Courville A., Vincent P.: [Representation Learning: A Review and New Perspectives](http://www.cl.uni-heidelberg.de/courses/ws14/deepl/BengioETAL12.pdf)
+[24] Frege G: [On Sense and Reference](http://brianrabern.net/sensereference.pdf) (1892)<br>
+[25] Holtz K.: [A Primer on Information Theories](http://www.autosophy.net/informth.htm) (1977)<br>
+[26] Hastie T., ‎Tibshirani R., ‎Friedman J. [The Elements of Statistical Learning: Data Mining, Inference, and Prediction](https://statweb.stanford.edu/~tibs/ElemStatLearn/printings/ESLII_print10.pdf) (2009)<br>
+[27] Leman D., Feelders A., Knobbe A.: [Exceptional Model Mining](https://www.kiminkii.com/publications/PKDD2008.pdf) (2008)<br>
+[28] Bengio Y., Courville A., Vincent P.: [Representation Learning: A Review and New Perspectives](http://www.cl.uni-heidelberg.de/courses/ws14/deepl/BengioETAL12.pdf) (2012)
