@@ -363,7 +363,20 @@ With Normalized Anchor Distance we can create vectors for any object by calculat
 
 #### Minimum Quartet Tree Cost
 
-A New Quartet Tree Heuristic for Hierarchical Clustering mutates an initially random unrooted dendrogram until it approaches an optimal weighting of quartet topologies. These trees can be visualized and used for unsupervised data exploration.
+A New Quartet Tree Heuristic for Hierarchical Clustering mutates an initially random unrooted dendrogram until it approaches an optimal weighting of quartet topologies. These trees can be visualized and used for unsupervised data exploration. The basis for a tree is a quartet toplogy:
+
+```
+  leaf_a         leaf_c
+        \       /
+        N1-----N2
+        /       \
+  leaf_b         leaf_d
+```
+A tree with 4 leaves is optimal, when the summed distances between leaf_a and leaf_b and leaf_c and leaf_b is the lowest possible (from every possible other configuration). Both methods like Quartet Puzzling and Minimum Quartet Tree Cost, see large dendrograms as composed of these quartet toplogies, sort of like puzzle pieces in a completed puzzle. Quartet Puzzling starts with the best quartet toplogies from all the possible quartet toplogies. It then proceeds to iteravely build a dendrogram. It can not go back to correct an earlier mistake. 
+
+Minimum Quartet Tree Cost uses a form of greedy hillclimbing to mutate a full random dendrogram. Leafs and subtrees are randomly swapped out to create new dendrograms. If the new dendrogram improves on the older dendrogram, then the older dendrogram is discarded. Improvement is measured by weighing the summed distances from the embedded quartet toplogies.
+
+The problem of finding the optimal dendrogram is NP-hard. It may be physically impossible to construct a tree with a fitness of 1. Also Koolmogorov will not always find the best possible tree. But give it some time, and you should get close.
 
 #### Topological Data Analysis
 
